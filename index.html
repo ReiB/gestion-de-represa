@@ -1,0 +1,236 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Gestión de Represa - Panel de Monitoreo
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="./assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="./assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+        <a class="simple-text logo-normal text-center">
+          Reinaldo Benitez
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="active terminal-boton">
+            <a href="index.html">
+              <i class="nc-icon nc-sound-wave"></i>
+              <p>terminal</p>
+            </a>
+          </li>
+          <li id="permisos-boton">
+            <a>
+              <i class="nc-icon nc-badge"></i>
+              <p>Permisos</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <p class="navbar-brand">Gestión de Represa</p>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          
+        </div>
+      </nav>
+      <!-- Fin Navbar -->
+      
+      <!--Inicio de muestra de datos-->
+      <div class="content">
+        <div class="terminal-wrapper">
+          <!--Nivel, Estado y Alertas-->
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 card-info-one">
+              <div class="card card-stats">
+                <div class="card-body ">
+                  <div class="row">
+                    <div class="col-3 col-md-4">
+                      <div class="icon-small text-center icon-warning">
+                        <i class="nc-icon nc-align-center text-warning"></i>
+                      </div>
+                    </div>
+                    <div class="col-9 col-md-8">
+                      <div class="numbers">
+                        <p class="card-category">Nivel Actual</p>
+                        <p class="card-title"><span id="nivel-actual-agua"></span>m</p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer ">
+                  <hr>
+                  <div class="stats">
+                    <a id="medir-agua" href="">
+                      <i class="fa fa-refresh"></i>
+                      Actualizar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 card-info-two">
+              <div class="card card-stats">
+                <div class="card-body ">
+                  <div class="row">
+                    <div class="col-3 col-md-4">
+                      <div class="icon-small text-center icon-warning">
+                        <i class="nc-icon nc-check-2 text-success"></i>
+                      </div>
+                    </div>
+                    <div class="col-9 col-md-8">
+                      <div class="numbers">
+                        <p class="card-category">Estado Actual</p>
+                        <p class="card-title" id="tipo-mensaje"></p><p>
+                      </p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer ">
+                  <hr>
+                  <div class="stats" id="ultima-medida">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 card-info-three">
+              <div class="card card-stats">
+                <div class="card-body ">
+                  <div class="row">
+                    <div class="col-3 col-md-4">
+                      <div class="icon-small text-center icon-warning">
+                        <i class="nc-icon nc-alert-circle-i text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="col-9 col-md-8">
+                      <div class="numbers">
+                        <p class="card-category">Alertas</p>
+                        <p class="card-title">1</p><p>
+                      </p></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer ">
+                  <hr>
+                  <div class="stats">
+                    <i class="fa fa-clock-o"></i>
+                    En la última hora
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Fin Nivel, Estado y Alertas-->
+
+          <!--Representacion Grafica-->
+          <div class="row">
+            <div class="col-md-9">
+              <div class="card ">
+                <div class="card-header ">
+                  <h5 class="card-title">Nivel de Agua</h5>
+                  <p class="card-category">Últimas 24hrs</p>
+                </div>
+                <div class="card-body "><div style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                  <canvas id="myChart"></canvas>
+                  <div id="chart-wrapper"></div>
+                </div>
+                <div class="card-footer ">
+                  
+                </div>
+              </div>
+            
+            </div>
+            <div class="col-md-3" id="compuertas-wrapper">
+              <h4 id="titulo-compuertas" class="text-right">Compuertas</h4>
+              <div class="row compuerta-item">
+                <div class="col">
+                  <div class="card card-stats">
+                    <div class="card-body ">
+                      <div class="row">
+                        <div class="col">
+                          <div class="icon-small text-center icon-default">
+                            <i class="nc-icon nc-vector text-danger"></i>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="numbers">
+                            <p class="card-category num-compuerta"></p>
+                            <p class="card-title estado-compuerta"></p><p>
+                          </p></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-footer ">                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Fin Representacion Grafica-->
+      </div>
+    </div>
+    <!--Footer-->
+      <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="credits ml-auto">
+              <span class="copyright">
+                
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore-compat.js"></script>
+  <script src="myfirebase.js"></script>
+  
+  <script src="./assets/js/core/jquery.min.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <script src="./assets/js/core/bootstrap.min.js"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Chart JS -->
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+  <script src="./assets/js/main.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="./assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+</body>
+
+</html>

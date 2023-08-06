@@ -1,0 +1,22 @@
+.wrapper {
+    height:max-content;
+}
+.main-panel {
+    height:max-content;
+}
+
+#titulo-compuertas {
+    margin-top:0;
+}
+
+.terminal-wrapper {
+    margin-bottom:20px;
+}
+
+.boton-compuerta {
+    cursor: pointer !important;
+}
+
+.card-title {
+  font-size:16px;
+}
